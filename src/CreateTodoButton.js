@@ -1,7 +1,15 @@
+import './CreateTodoButton.css'
+
 function CreateTodoButton(){
     return (
-        <button>Soy un boton</button>
+        <button className='CreateTodoButton' 
+        onClick={
+          (event) => {
+            console.log('le diste click')
+            console.log(event)}}>
+          +
+        </button>
     );
   }
 
-export {CreateTodoButton};
+export { CreateTodoButton };

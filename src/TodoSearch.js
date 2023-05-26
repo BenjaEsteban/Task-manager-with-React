@@ -1,6 +1,11 @@
+import './TodoSearch.css'
+
 function TodoSearch(){
     return (
-      <input placeholder="Cortar verduras"/>
+      <input className='TodoSearch' placeholder="Cortar verduras"
+      onChange={(event) => {
+        console.log(event.target.value)
+      }}/>
     );
   }
 
