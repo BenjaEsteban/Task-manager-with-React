@@ -1,12 +1,17 @@
+import React, { useState } from 'react';
 import './TodoSearch.css'
 
-function TodoSearch(){
-    return (
-      <input className='TodoSearch' placeholder="Cortar verduras"
+function TodoSearch({
+  searchValue,
+  setSearchValue,
+}) {
+  return (
+    <input className='TodoSearch' placeholder="Buscar"
+      value={searchValue}
       onChange={(event) => {
-        console.log(event.target.value)
-      }}/>
-    );
-  }
+        setSearchValue(event.target.value)
+      }} />
+  );
+}
 
-export { TodoSearch };
+export { TodoSearch }
