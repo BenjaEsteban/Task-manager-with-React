@@ -1,41 +1,47 @@
 import React, { useState } from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
-import { CreateTodoButton } from './CreateTodoButton';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodoItem';
+import { CreateTodoButton } from '../CreateTodoButoon';
+import { useLocalStorage } from './useLocalStorage';
 
-const defaultTodo = [
-  { text: 'Cortar cebolla', completed: false },
-  { text: 'No llorar', completed: true },
-  { text: 'Leer', completed: false },
-  { text: 'Programar', completed: false },
-];
+// const defaultTodo = [
+//   { text: 'Cortar cebolla', completed: false },
+//   { text: 'No llorar', completed: true },
+//   { text: 'Leer', completed: false },
+//   { text: 'Programar', completed: false },
+// ];
+
+// localStorage.setItem(itemName, JSON.stringify(defaultTodo))
 
 function App() {
   //Estados
-  const [todos, setTodo] = React.useState(defaultTodo)
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState('')
   const completedTodos = todos.filter(todo => !!todo.completed).length
   const totalTodos = todos.length
+
   const searchedTodo = todos.filter((todo) => {
     return todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
   })
+
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text == text
+      (todo) => todo.text === text
     )
     newTodos[todoIndex].completed = true
-    setTodo(newTodos)
+    saveTodos(newTodos)
   }
+
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
-      (todo) => todo.text == text
+      (todo) => todo.text === text
     )
     newTodos.splice(todoIndex, 1)
-    setTodo(newTodos)
+    saveTodos(newTodos)
   }
 
   return (
