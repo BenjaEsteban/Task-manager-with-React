@@ -1,7 +1,8 @@
 {
-  "name": "platzi-intro-react-base",
+  "name": "task-manager-with-react",
   "version": "0.1.0",
   "dependencies": {
+    "@uiball/loaders": "^1.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.8.0",
