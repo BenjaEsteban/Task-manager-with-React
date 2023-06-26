@@ -15,6 +15,15 @@ function TodoProvider({ children }) {
         return todo.text.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
     })
 
+    const addTodo = (text) => {
+        const newTodos = [...todos]
+        newTodos.push({
+            text,
+            completed: false
+        })
+        saveTodos(newTodos)
+    }
+
     const completeTodo = (text) => {
         const newTodos = [...todos]
         const todoIndex = newTodos.findIndex(
@@ -44,7 +53,8 @@ function TodoProvider({ children }) {
             completeTodo,
             deleteTodo,
             openModal,
-            setOpenModal
+            setOpenModal,
+            addTodo
         }}>
             {children}
         </TodoContext.Provider>
