@@ -13,7 +13,7 @@ function TodoSearch() {
       onChange={(event) => {
         setSearchValue(event.target.value)
       }} />
-  );
+  )
 }
 
 export { TodoSearch }

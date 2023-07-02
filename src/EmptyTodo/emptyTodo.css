@@ -1,0 +1,9 @@
+.sectionContainer {
+    padding: 20px;
+    text-align: center;
+}
+
+.sectionContainer p {
+    font-family: 'Futura';
+    font-size: 18px;
+}

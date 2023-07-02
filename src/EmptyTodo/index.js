@@ -1,9 +1,11 @@
-import React  from 'react';
+import React from 'react'
 import './emptyTodo.css'
 
 function EmptyTodos() {
   return (
-   <p>Crea tu primer todo</p> 
+   <section className='sectionContainer'>
+      <p>Sin tareas!</p>
+   </section>
   )
 }
 
