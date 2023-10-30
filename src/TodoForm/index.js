@@ -30,7 +30,7 @@ function TodoForm() {
                 Escribe tu nuevo TODO
             </label>
             <textarea
-                placeholder="Placeholder"
+                placeholder="Escribe tu nueva Tarea"
                 value={newTodoValue}
                 onChange={onChange}
             />

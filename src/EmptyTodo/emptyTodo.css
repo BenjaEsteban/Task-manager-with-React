@@ -1,9 +1,26 @@
 .sectionContainer {
+    font-family: 'Futura';
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
 }
 
-.sectionContainer p {
-    font-family: 'Futura';
+.sectionContainer .title {
+    width: 100%;
     font-size: 18px;
+}
+
+.articleContainer {
+    max-width: 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.articleContainer img {
+    width: 100%;
 }

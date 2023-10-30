@@ -5,8 +5,15 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    margin-top: 24px;
+    margin: 30px 24px 0 24px;
     box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+}
+
+.imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .TodoItem-p {
@@ -50,4 +57,9 @@
 
 .Icon-delete:hover {
     color: red;
+}
+
+.taskIlustration {
+    max-width: 15rem;
+    margin: 2rem 0 1rem 0;
 }
