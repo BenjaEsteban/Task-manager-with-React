@@ -1,15 +1,15 @@
-import React from "react";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { CreateTodoButton } from "../CreateTodoButoon";
-import { TodoError } from "../TodoError";
-import { EmptyTodos } from "../EmptyTodo";
-import { TodoLoading } from "../TodoLoading";
-import { TodoContext } from "../TodoContext";
-import { Modal } from "../Modal";
-import { TodoForm } from "../TodoForm";
+import React from "react"
+import { TodoCounter } from "../TodoCounter"
+import { TodoSearch } from "../TodoSearch"
+import { TodoList } from "../TodoList"
+import { TodoItem } from "../TodoItem"
+import { CreateTodoButton } from "../CreateTodoButoon"
+import { TodoError } from "../TodoError"
+import { EmptyTodos } from "../EmptyTodo"
+import { TodoLoading } from "../TodoLoading"
+import { TodoContext } from "../TodoContext"
+import { Modal } from "../Modal"
+import { TodoForm } from "../TodoForm"
 
 function AppUI() {
   const {
@@ -20,7 +20,7 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
-  } = React.useContext(TodoContext);
+  } = React.useContext(TodoContext)
 
   return (
     <React.Fragment>
@@ -55,7 +55,7 @@ function AppUI() {
         </Modal>
       )}
     </React.Fragment>
-  );
+  )
 }
 
-export { AppUI };
+export { AppUI }
