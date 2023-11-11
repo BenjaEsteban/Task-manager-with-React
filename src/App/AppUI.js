@@ -1,15 +1,16 @@
-import React from "react"
-import { TodoCounter } from "../TodoCounter"
-import { TodoSearch } from "../TodoSearch"
-import { TodoList } from "../TodoList"
-import { TodoItem } from "../TodoItem"
-import { CreateTodoButton } from "../CreateTodoButoon"
-import { TodoError } from "../TodoError"
-import { EmptyTodos } from "../EmptyTodo"
-import { TodoLoading } from "../TodoLoading"
-import { TodoContext } from "../TodoContext"
-import { Modal } from "../Modal"
-import { TodoForm } from "../TodoForm"
+import React from "react";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
+import { CreateTodoButton } from "../CreateTodoButoon";
+import { TodoError } from "../TodoError";
+import { EmptyTodos } from "../EmptyTodo";
+import { TodoLoading } from "../TodoLoading";
+import { TodoContext } from "../TodoContext";
+import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
+import { TodoEdit } from "../TodoEdit";
 
 function AppUI() {
   const {
@@ -19,8 +20,9 @@ function AppUI() {
     completeTodo,
     deleteTodo,
     openModal,
+    openModalEdit,
     setOpenModal,
-  } = React.useContext(TodoContext)
+  } = React.useContext(TodoContext);
 
   return (
     <React.Fragment>
@@ -39,11 +41,11 @@ function AppUI() {
 
         {searchedTodo.map((todo) => (
           <TodoItem
-            key={todo.text}
+            key={todo.id}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
           />
         ))}
       </TodoList>
@@ -54,8 +56,15 @@ function AppUI() {
           <TodoForm />
         </Modal>
       )}
+
+      {openModalEdit && (
+        <Modal>
+          <TodoEdit />
+        </Modal>
+      )}
+      
     </React.Fragment>
-  )
+  );
 }
 
-export { AppUI }
+export { AppUI };

@@ -1,3 +1,4 @@
+import { ButtonEdit } from "../ButtonEdit";
 import "./TodoItem.css";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
@@ -19,6 +20,9 @@ function TodoItem(props) {
         >
           {props.text}
         </p>
+        <span className="Icon Icon-edit" onClick={props.onDelete}>
+          <ButtonEdit />
+        </span>
         <span className="Icon Icon-delete" onClick={props.onDelete}>
           <AiTwotoneDelete />
         </span>

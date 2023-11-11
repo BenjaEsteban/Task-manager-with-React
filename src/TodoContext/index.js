@@ -4,9 +4,10 @@ import { useLocalStorage } from "./useLocalStorage"
 const TodoContext = React.createContext()
 
 function TodoProvider({ children }) {
-    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', [])
+    const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V2', [])
     const [searchValue, setSearchValue] = React.useState('')
     const [openModal, setOpenModal] = React.useState(false)
+    const [openModalEdit, setOpenModalEdit] = React.useState(false)
 
     const completedTodos = todos.filter(todo => !!todo.completed).length
     const totalTodos = todos.length
@@ -16,33 +17,50 @@ function TodoProvider({ children }) {
     })
 
     const addTodo = (text) => {
+        const id = newTodoID(todos)
         const newTodos = [...todos]
         newTodos.push({
             text,
-            completed: false
+            completed: false,
+            id,
         })
         saveTodos(newTodos)
     }
 
-    const completeTodo = (text) => {
+    const completeTodo = (id) => {
         const newTodos = [...todos]
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
         )
         newTodos[todoIndex].completed = true
         saveTodos(newTodos)
     }
 
-    
-
-    const deleteTodo = (text) => {
+    const editTodo = (id, newText) => {
         const newTodos = [...todos]
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
+        )
+        newTodos[todoIndex].text = newText
+        saveTodos(newTodos)
+    }
+
+    const deleteTodo = (id) => {
+        const newTodos = [...todos]
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
         )
         newTodos.splice(todoIndex, 1)
         saveTodos(newTodos)
     }
+
+    const newTodoID = (todoList) => {
+        if (todoList.length === 0) {return 1}
+        const idList = todoList.map(todo => todo.id)
+        const idMax = Math.max(...idList)
+        return idMax + 1
+    }
+
     return (
         <TodoContext.Provider value={{
             loading,
@@ -56,7 +74,10 @@ function TodoProvider({ children }) {
             deleteTodo,
             openModal,
             setOpenModal,
-            addTodo
+            addTodo,
+            editTodo,
+            openModalEdit,
+            setOpenModalEdit
         }}>
             {children}
         </TodoContext.Provider>

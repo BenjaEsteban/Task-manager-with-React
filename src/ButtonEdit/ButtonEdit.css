@@ -1,0 +1,18 @@
+.ButtonEdit {
+    border: transparent;
+    background: none;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.ButtonEdit svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ButtonEdit:hover svg {
+    color: rgb(158, 158, 3);
+}
+
