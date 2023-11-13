@@ -1,7 +1,8 @@
-import { ButtonEdit } from "../ButtonEdit";
+// import { ButtonEdit } from "../ButtonEdit";
 import "./TodoItem.css";
 import { AiTwotoneDelete } from "react-icons/ai";
 import { AiFillLike } from "react-icons/ai";
+// import { HiPencil } from "react-icons/hi";
 
 function TodoItem(props) {
   return (
@@ -20,9 +21,9 @@ function TodoItem(props) {
         >
           {props.text}
         </p>
-        <span className="Icon Icon-edit" onClick={props.onDelete}>
-          <ButtonEdit />
-        </span>
+        {/* <span className="Icon Icon-edit" onClick={props.onEdit}>
+          <HiPencil/>
+        </span> */}
         <span className="Icon Icon-delete" onClick={props.onDelete}>
           <AiTwotoneDelete />
         </span>
